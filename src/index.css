@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  margin: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', 'Roboto', 'Arial', sans-serif;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Additional animations for enhanced effects */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+.celebration-active {
+  overflow: hidden !important;
+}
