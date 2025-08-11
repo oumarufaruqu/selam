@@ -5,29 +5,17 @@ import CharacterDisplay from './CharacterDisplay';
 import MovingNoButton from './MovingNoButton';
 import CelebrationEffects from './CelebrationEffects';
 
-const GrowingButton = styled(Button)<{ growthLevel: number }>(({ theme, growthLevel }) => ({
+const GrowingButton = styled(Button)<{ growthLevel: number }>(({ growthLevel }) => ({
   fontSize: `${1 + growthLevel * 0.3}rem`,
   padding: `${12 + growthLevel * 4}px ${24 + growthLevel * 8}px`,
   minWidth: `${120 + growthLevel * 40}px`,
   minHeight: `${48 + growthLevel * 16}px`,
   transition: 'all 0.3s ease-in-out',
-  transform: growthLevel > 5 ? 'scale(1.2)' : 'scale(1)',
   zIndex: growthLevel > 3 ? 10 : 1,
   position: growthLevel > 7 ? 'fixed' : 'relative',
   top: growthLevel > 7 ? '50%' : 'auto',
   left: growthLevel > 7 ? '50%' : 'auto',
   transform: growthLevel > 7 ? 'translate(-50%, -50%) scale(2)' : `scale(${1 + growthLevel * 0.1})`,
-}));
-
-const ShrinkingButton = styled(Button)<{ growthLevel: number }>(({ theme, growthLevel }) => ({
-  fontSize: `${Math.max(0.7, 1 - growthLevel * 0.1)}rem`,
-  padding: `${Math.max(4, 12 - growthLevel * 2)}px ${Math.max(8, 24 - growthLevel * 4)}px`,
-  minWidth: `${Math.max(60, 120 - growthLevel * 10)}px`,
-  minHeight: `${Math.max(32, 48 - growthLevel * 3)}px`,
-  transition: 'all 0.3s ease-in-out',
-  opacity: Math.max(0.3, 1 - growthLevel * 0.1),
-  position: 'relative',
-  zIndex: 1,
 }));
 
 const InteractiveQuestion: React.FC = () => {

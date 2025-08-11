@@ -11,7 +11,7 @@ const MovingButton = styled(Button)<{
   position: { x: number; y: number }; 
   shouldHide: boolean;
   clickCount: number;
-}>(({ theme, position, shouldHide, clickCount }) => ({
+}>(({ position, shouldHide, clickCount }) => ({
   position: 'absolute',
   left: `${position.x}px`,
   top: `${position.y}px`,
@@ -33,7 +33,6 @@ const MovingButton = styled(Button)<{
 
 const MovingNoButton: React.FC<MovingNoButtonProps> = ({ onClick, clickCount }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
   const [shouldDisappear, setShouldDisappear] = useState(false);
 
   // Generate random position within viewport bounds
@@ -58,7 +57,6 @@ const MovingNoButton: React.FC<MovingNoButtonProps> = ({ onClick, clickCount }) 
 
   // Handle hover disappearing after 5 clicks
   const handleMouseEnter = () => {
-    setIsHovering(true);
     if (clickCount >= 5) {
       setShouldDisappear(true);
       // Reset after a short delay
@@ -70,7 +68,7 @@ const MovingNoButton: React.FC<MovingNoButtonProps> = ({ onClick, clickCount }) 
   };
 
   const handleMouseLeave = () => {
-    setIsHovering(false);
+    // Mouse leave handler
   };
 
   const handleClick = () => {
